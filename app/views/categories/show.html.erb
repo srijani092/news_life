@@ -1,0 +1,75 @@
+<header>
+    <hgroup class="clearfix"> 
+         <h1><a href="#">News<span>Live</span></a></h1>
+        <h2>
+        Get latest news from anywhere and anytime
+    </h2>
+    </hgroup>
+</header>
+
+<div id="main" class="clearfix">
+
+  <aside>
+        <nav>
+            <ul id="menu">
+              <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><%= link_to 'Home page', home_index_path %></li>
+                <li>
+                  <% if admin? %>
+                   <%= link_to 'New Category', new_category_path %><% end %></li>
+                   <li><% if admin? %><%= link_to "Sign out", logout_path %><% end %></li>
+                   <li><%= link_to 'Show Articles', category_articles_path(@category) %></li>
+                   <li><%= link_to 'Category', categories_path %></li>
+            </ul>
+        </nav>
+    </aside>
+
+
+
+
+
+
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<div id="content">
+
+<article>
+
+
+<p>
+  <b>Title:</b>
+  <%= @category.title %>
+</p>
+
+
+
+
+<h2>News</h2>
+<table>
+  <tr>
+    <th>Headline:</th>
+    <th>Date:</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @category.articles.each do |article| %>
+  <tr>
+    <td><%= article.headline %></td>
+    <td><%= article.dated %></td>
+    <td><%= link_to 'Read more', category_article_path(@category,article) %></td> 
+  </tr>
+ <% end %>
+</table>
+</article>
+
+
+<% if admin? %>
+<%= link_to 'Edit', edit_category_path(@category) %> 
+<% end %>
+<%= link_to 'Back', categories_path %>

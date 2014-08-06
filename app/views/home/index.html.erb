@@ -1,0 +1,75 @@
+<header>
+    <hgroup class="clearfix"> 
+         <h1><a href="#">News<span>Live</span></a></h1>
+        <h2>
+        Get latest news from anywhere and anytime
+    </h2>
+    </hgroup>
+</header>
+
+
+<div id="sign">
+<%= link_to "Sign in", login_path %>
+</div>
+
+
+<div id="main" class="clearfix">
+
+	<aside>
+        <nav>
+            <ul id="menu">
+            	<li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><%= link_to "Categories", categories_path %></li>    
+            </ul>
+        </nav>
+    </aside>
+
+
+
+ <div id="content">
+        <article>
+            <section>
+                <style>
+                   p{
+                    font-size: 20px;
+                    font-family: "Lucida Console";
+                    color: #931929;
+                }
+            
+                </style>
+                <p>This app brings you the latest news and buzz.</p><p>From politics to nation to sports to entertainment, you have every kinds of news from different corners of the world  all at your fingertips.</p>
+                <p>Stay updated all the time!</p>
+                
+            </section>
+        </article>
+
+        <article>
+         <section>
+            <p>FEATURED NEWS</p>
+           <table>
+              <tr>
+               <th>Headline</th>
+                <th>Date</th>
+                <th>Content</th>
+                 </tr>
+
+<% for article in @articles %>
+  <tr>
+    <td><%= article.headline %></td>
+    <td><%= article.dated %></td>
+    <td><%= truncate(article.content, :length => 80) %></td>
+    </tr>
+<% end %>
+</table>
+</article>
+</section>
+</div>
+</div>
+
+
+
+
+
+
+

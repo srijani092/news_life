@@ -1,0 +1,67 @@
+
+
+<header>
+    <hgroup class="clearfix"> 
+         <h1><a href="#">News<span>Live</span></a></h1>
+        <h2>
+        Get latest news from anywhere and anytime
+    </h2>
+    </hgroup>
+</header>
+
+<% if admin? %>
+<%= link_to 'Edit', edit_category_article_path(@category, @article) %> 
+<% end %>
+<%= link_to 'Back', category_articles_path(@category) %>
+
+
+
+
+
+
+
+<style>
+h1{
+  text-align: center;
+  text-decoration: underline;
+  font-size: 20 px;
+  color: #4c2626;
+
+}
+</style>
+
+
+
+<h1>Article in <%= @category.title %></h1>
+<style>
+section{
+	text-align: center;
+
+
+}
+
+</style>
+<section>
+<p>
+  <b>Headline:</b>
+  <%= @article.headline %>
+</p>
+<p>
+ 
+  <%= image_tag @article.photo.url %>
+</p>
+<p>
+  <b>Dated:</b>
+  <%= @article.dated %>
+</p>
+<p>
+  <b>Content:</b>
+  <%= @article.content %>
+</p>
+</section>
+
+
+
+
+
+

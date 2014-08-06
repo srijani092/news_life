@@ -1,0 +1,33 @@
+<header>
+    <hgroup class="clearfix"> 
+         <h1><a href="#">News<span>Live</span></a></h1>
+        <h2>
+        Get latest news from anywhere and anytime
+    </h2>
+    </hgroup>
+</header>
+<%= link_to "Back", home_index_path %> 
+
+<h1>Username:Admin</h1>
+
+<style>
+
+h1{
+	text-align: center;
+}
+
+.content{
+	text-align: center;
+}
+</style>
+<div class="content">
+<p>
+	<%= form_tag sessions_path do %>
+
+	Password: <%= password_field_tag :password %>
+	<% end %>
+
+
+
+</p>
+</div>

@@ -1,0 +1,74 @@
+
+
+<header>
+    <hgroup class="clearfix"> 
+         <h1><a href="#">News<span>Live</span></a></h1>
+        <h2>
+        Get latest news from anywhere and anytime
+    </h2>
+    </hgroup>
+</header>
+<%= link_to 'Back', category_articles_path(@category) %>
+
+<div id="main" class="clearfix">
+
+  <aside>
+        <nav>
+            <ul id="menu">
+              <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><%= link_to 'Home page', home_index_path %></li>
+                <li><% if admin? %><%= link_to "Sign out", logout_path %><% end %></li>
+                <li><%= link_to 'Category', categories_path %></li>
+                   
+            </ul>
+        </nav>
+    </aside>
+
+
+<style>
+h1{
+  text-align: center;
+  text-decoration: underline;
+  font-size: 20 px;
+  color: #4c2626;
+
+}
+</style>
+
+
+<h1>New Article</h1>
+<style>
+form{
+  text-align: center;
+}
+</style>
+<div id="form">
+
+
+<%= form_for([@category, @article], :html => { :multipart => true }) do |f| %>
+ 
+  <p>
+    <%= f.label :headline %><br />
+    <%= f.text_field :headline %>
+  </p>
+  <p>
+    <%= f.label :dated %><br />
+    <%= f.text_field :dated %>
+  </p>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.label :photo %><br />
+    <%= f.file_field :photo %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+</div>
+</div>
+
+
